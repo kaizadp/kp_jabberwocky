@@ -56,7 +56,8 @@ data_pca = fit_pca_function(data)
 ## detailed info for the `ggbiplot` function can be found in the package description
 ## try `?ggbiplot` for details
 
-ggbiplot(data_pca$pca_int, 
+gg = 
+  ggbiplot(data_pca$pca_int, 
          obs.scale = 1, var.scale = 1,
          groups = as.character(data_pca$grp$Species), 
          ellipse = TRUE, circle = FALSE, 
@@ -71,4 +72,19 @@ ggbiplot(data_pca$pca_int,
 ## The code above is for a basic biplot.
 ## It uses ggplot structure, and you can modify the graph using the typical ggplot commands
   
- 
+## making a better version of the graph above
+ggbiplot(data_pca$pca_int, 
+         obs.scale = 1, var.scale = 1,
+         groups = as.character(data_pca$grp$Species), 
+         ellipse = TRUE, circle = FALSE, 
+         var.axes = TRUE, alpha = 0) +
+  geom_point(size = 5, stroke = 1, color = "black",
+             aes(
+               shape = groups, # set shape to a specific column
+               fill = groups # or simply use `groups` if it's the same grouping
+             ))+ 
+  scale_shape_manual(values = c(21, 22, 23))+
+  scale_color_viridis_d()+
+  scale_fill_viridis_d()+
+  theme_bw()+
+  NULL
