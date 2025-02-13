@@ -31,9 +31,7 @@ jobs:
         
     - name: Install packages
       uses: r-lib/actions/setup-r-dependencies@v2
-      with:
-        packages: |
-          any::googlesheets4
           
     - name: import gsheet
-      run: Rscript -e 'source("testing_action.R")'
+      run: |
+        Rscript testing_action.R
