@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./gh_action
+        working-directory: gh_action
     steps:
     # Runs a single command using the runners shell
     - name: Set up R
