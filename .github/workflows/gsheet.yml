@@ -26,5 +26,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     # Runs a single command using the runners shell
+    
+    - name: Install packages
+      uses: r-lib/actions/setup-r-dependencies@v2
+      with:
+        packages: |
+          any::tidyverse 
+          any::googlesheets4
+          
     - name: import gsheet
       run: Rscript -e `source("gh_actions/testing_action.R")`
