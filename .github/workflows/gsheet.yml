@@ -36,4 +36,4 @@ jobs:
           any::googlesheets4
           
     - name: import gsheet
-      run: Rscript -e 'source("gh_actions/testing_action.R")'
+      run: Rscript -e 'source("testing_action.R")'
