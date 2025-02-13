@@ -31,4 +31,5 @@ jobs:
           
     - name: import gsheet
       run: |
-        Rscript testing_action.R
+        cd gh_action/
+        Rscript --verbose ./testing_action.R
